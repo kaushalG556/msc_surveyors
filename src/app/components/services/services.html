@@ -1,0 +1,264 @@
+<section data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-delay="200"
+  data-aos-easing="ease-out-cubic"
+  data-aos="fade-up"
+  class="py-12 sm:py-16 lg:py-20">
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+
+    <!-- Heading -->
+<!-- Heading -->
+<div class="flex items-center justify-center lg:justify-start gap-2 sm:gap-3 flex-wrap mb-6">
+  <div class="w-10 sm:w-16 h-px bg-blue-500"></div>
+
+  <span
+    class="text-blue-500 text-xs sm:text-sm font-semibold tracking-[3px] sm:tracking-[5px]"
+  >
+    MSC
+  </span>
+
+  <div class="w-10 sm:w-16 h-px bg-blue-300"></div>
+</div>
+
+<h1
+  class="mb-8 sm:mb-10 lg:mb-12
+         text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+         font-bold
+         text-[#08233d]
+         leading-tight
+         text-center lg:text-left"
+>
+  What <span class="text-[#2d83c5]">defines us</span>
+</h1>
+
+<!-- Top Slider -->
+<swiper-container
+  #swiperTop
+  init="false"
+  class="w-full mb-6 sm:mb-8"
+>
+
+  @for (service of services; track service.title) {
+
+    <swiper-slide>
+
+      <a
+        href="/services"
+        class="flex items-center
+               gap-3 sm:gap-4
+               w-full
+               bg-white
+               rounded-xl
+               shadow-lg
+               p-3 sm:p-4
+               hover:shadow-xl
+               transition">
+
+        <img
+          [src]="service.image"
+          [alt]="service.title"
+          class="w-16 h-16 sm:w-20 sm:h-20 rounded-md object-cover flex-shrink-0"
+        >
+
+        <h3
+          class="font-semibold
+                 text-sm
+                 sm:text-base
+                 leading-5">
+          {{ service.title }}
+        </h3>
+
+      </a>
+
+    </swiper-slide>
+
+  }
+
+</swiper-container>
+
+<!-- Bottom Slider -->
+<swiper-container
+  #swiperBottom
+  init="false"
+  class="w-full"
+>
+
+  @for (service of services; track service.title) {
+
+    <swiper-slide>
+
+      <a
+        href="/services"
+        class="flex items-center
+               gap-3 sm:gap-4
+               w-full
+               bg-white
+               rounded-xl
+               shadow-lg
+               p-3 sm:p-4
+               hover:shadow-xl
+               transition">
+
+        <img
+          [src]="service.image"
+          [alt]="service.title"
+          class="w-16 h-16 sm:w-20 sm:h-20 rounded-md object-cover flex-shrink-0"
+        >
+
+        <h3
+          class="font-semibold
+                 text-sm
+                 sm:text-base
+                 leading-5">
+          {{ service.title }}
+        </h3>
+
+      </a>
+
+    </swiper-slide>
+
+  }
+
+</swiper-container>
+
+  </div>
+
+</section>
+
+<!-- ################################################################################################################################## -->
+
+<div class="relative bg-[#071827] py-12 sm:py-16 lg:py-24 overflow-hidden">
+  <!-- Background Grid -->
+  <div
+    class="absolute inset-0 opacity-10"
+    style="
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 64px 64px;
+    "
+  ></div>
+
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <!-- Left Image -->
+      <div data-aos="fade-right" data-aos-duration="1000" class="relative">
+        <img
+          src="images/about-banner.avif"
+          class="w-full h-[350px] sm:h-[450px] md:h-[550px] lg:h-[650px] object-cover"
+          alt="Marine Survey"
+        />
+
+        <!-- Experience Box -->
+        <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200"
+          class="absolute left-4 bottom-4 sm:bottom-6 sm:left-6 lg:left-8 lg:bottom-8 bg-sky-500 px-8 py-6"
+        >
+          <h2 class="text-5xl font-bold text-white">480+</h2>
+
+          <p class="uppercase text-sm tracking-widest text-white mt-2">Services</p>
+        </div>
+
+        <!-- Small Image -->
+        <img data-aos="fade-right" data-aos-duration="1000"
+          src="images/about-small.avif"
+          class="absolute right-2 bottom-[-15px] sm:right-6 sm:bottom-[-20px] lg:right-8 lg:bottom-[-25px] w-28 sm:w-40 lg:w-52 border-4 border-[#071827]"
+          alt=""
+        />
+      </div>
+
+      <!-- Right Content -->
+      <div>
+        <!-- Badge -->
+        <span
+          class="inline-flex items-center border border-slate-700 px-5 py-2 text-sky-500 uppercase tracking-[4px] text-xs sm:text-sm"
+        >
+          Who We Are
+        </span>
+
+        <!-- Heading -->
+        <h2
+          class="mt-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white"
+        >
+          Independent<br />
+
+          Technical
+
+          <span class="block text-sky-500"> Excellence </span>
+        </h2>
+
+        <div class="w-16 h-1 bg-sky-500 mt-6 mb-8"></div>
+
+        <!-- Description -->
+        <p class="text-gray-400 leading-7 sm:leading-8 text-base sm:text-lg">
+          Marine Surveyors and Consultants is an independent organization specializing in
+          comprehensive vessel, cargo, and maritime infrastructure inspections.
+        </p>
+
+        <!-- Features -->
+        <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200" class="mt-10 space-y-5">
+          <div class="flex items-center gap-4">
+            <div
+              class="w-9 h-9 sm:w-10 sm:h-10 border border-sky-500 flex items-center justify-center text-sky-500"
+            >
+              🛡
+            </div>
+
+
+            <span class="text-white"> No conflicts of interest </span>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div
+              class="w-10 h-10 border border-sky-500 flex items-center justify-center text-sky-500"
+            >
+              🌍
+            </div>
+
+            <span class="text-white"> Global coverage </span>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div
+              class="w-9 h-9 sm:w-10 sm:h-10 border border-sky-500 flex items-center justify-center text-sky-500"
+            >
+              ⚓
+            </div>
+
+            <span class="text-white"> Maritime expertise </span>
+          </div>
+</div>
+        <!-- Statistics -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-3 border-y border-slate-800 mt-12 py-8 text-center"
+        >
+          <div>
+            <h3 class="text-white text-3xl sm:text-4xl font-bold">6+</h3>
+
+            <p class="text-gray-500 uppercase text-xs mt-2">Years of Experience</p>
+          </div>
+
+          <div>
+            <h3 class="text-white text-3xl sm:text-4xl font-bold">480+</h3>
+
+            <p class="text-gray-500 uppercase text-xs mt-2">Services Completed</p>
+          </div>
+
+          <div>
+            <h3 class="text-white text-3xl sm:text-4xl font-bold">120+</h3>
+
+            <p class="text-gray-500 uppercase text-xs mt-2">Corporate Clients</p>
+          </div>
+        </div>
+
+        <!-- Button -->
+        <button
+          (click)="goToAbout()"
+          class="inline-flex items-center justify-center gap-3 bg-sky-500 hover:bg-sky-600 transition px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base text-white font-semibold mt-10"
+        >
+          Learn More About MSC
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+  </div>

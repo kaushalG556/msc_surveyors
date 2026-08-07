@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Reversal";
+  src: url("/assets/fonts/Reversal-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@import "tailwindcss";
+
+@theme {
+  --font-hero: "Reversal", sans-serif;
+}

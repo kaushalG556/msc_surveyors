@@ -1,0 +1,101 @@
+<section data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-delay="200"
+  data-aos-easing="ease-out-cubic"
+  data-aos="fade-up"
+  data-aos="fade-up"
+  class="bg-[#08172c] py-12 sm:py-16 lg:py-20">
+  <div class="w-full ">
+    <!-- Header -->
+
+    <div class=" pl-4 flex flex-col lg:flex-row justify-between lg:items-center gap-8 mb-10 lg:mb-16">
+      <div data-aos="fade-up">
+        <span
+          class="text-blue-500 border-l-4 border-blue-500 pl-3 uppercase tracking-widest text-xs sm:text-sm"
+        >
+          What MSC Offers
+        </span>
+
+        <h2
+          class="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-5 leading-tight font-['Space_Grotesk']"
+        >
+          Comprehensive Maritime
+
+          <span class="text-blue-500 block"> Solutions </span>
+        </h2>
+      </div>
+
+      <div class="flex gap-3">
+        <button
+          class="swiper-prev w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 border border-white/40 text-white hover:bg-blue-500 transition"
+        >
+          &#10094;
+        </button>
+
+        <button
+          class="swiper-next w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 border border-white/40 text-white hover:bg-blue-500 transition"
+        >
+          &#10095;
+        </button>
+      </div>
+    </div>
+
+    <!-- Slider -->
+
+    <swiper-container
+    
+      class="mySwiper w-full"
+      slides-per-view="1"
+      space-between="2"
+      loop="true"
+      autoplay-delay="3000"
+      navigation-next-el=".swiper-next"
+      navigation-prev-el=".swiper-prev"
+      pagination="true"
+      breakpoints='{
+              "320":{"slidesPerView":1},
+              "640":{"slidesPerView":1},
+              "768":{"slidesPerView":2},
+              "1024":{"slidesPerView":3},
+              "1440":{"slidesPerView":4}
+            }'
+    >
+      @for (service of services; track service.title) {
+        <swiper-slide>
+          <div class="relative group h-[320px] sm:h-[360px] md:h-[400px] lg:h-[420px] overflow-hidden rounded-lg border border-white/10">
+            <img
+              [src]="service.image"
+              [alt]="service.title"
+              class=" mx-2 w-full h-full object-cover transition duration-500 group-hover:scale-110"
+            />
+
+            <div
+              class="absolute inset-x-0 bottom-0 p-5 sm:p-6 lg:p-8 bg-gradient-to-t from-black/80 to-transparent"
+            >
+              <h3 class="text-white text-xl sm:text-2xl lg:text-3xl font-bold">
+                {{ service.title }}
+              </h3>
+
+              <p class="text-gray-300 mt-3 text-sm sm:text-base line-clamp-3">
+                {{ service.description }}
+              </p>
+
+              <a routerLink="/services" class="inline-block mt-5 text-blue-500 font-semibold">
+                Explore →
+              </a>
+            </div>
+          </div>
+        </swiper-slide>
+      }
+    </swiper-container>
+
+    <div class="text-center mt-12">
+      <button
+        routerLink="/services"
+        class="bg-blue-600 hover:bg-blue-700 px-6 sm:px-10 lg:px-10 py-3 lg:py-4 text-white rounded-md"
+      >
+        View All Services →
+      </button>
+    </div>
+  </div>
+</section>

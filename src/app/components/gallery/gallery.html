@@ -1,0 +1,107 @@
+<section data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-delay="200"
+  data-aos-easing="ease-out-cubic"
+  data-aos="fade-up"
+  data-aos="fade-up"
+  class="bg-white py-12 sm:py-16 lg:py-20">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+    <!-- Heading -->
+
+    <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center mb-10 gap-6">
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <div class="bg-blue-600 w-8 h-8 flex items-center justify-center text-white rounded">
+            📷
+          </div>
+
+          <span class="uppercase text-xs tracking-[3px] text-blue-600 font-semibold">
+            Gallery
+          </span>
+
+          <div class="w-10 h-[2px] bg-blue-400"></div>
+        </div>
+
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900">
+          Our Work
+          <span class="text-blue-500 font-normal"> in Images </span>
+        </h2>
+      </div>
+
+      <button class="inline-flex items-center justify-center bg-[#0B2748] text-white px-6 sm:px-8 py-3 sm:py-4 hover:bg-blue-700 transition">
+        <a routerLink="/gallery"> View Gallery → </a>
+      </button>
+    </div>
+
+    <!-- Main Slider -->
+
+    <div class="relative overflow-hidden">
+      <!-- Image -->
+
+      <img [src]="images[currentIndex].image" class="w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px] object-cover tracking-all duration-700" />
+
+      <!-- Overlay -->
+
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-[#001a33]/80 via-transparent to-transparent"
+      ></div>
+
+      <!-- Category -->
+
+    <div class="absolute top-4 left-4 sm:top-6 sm:left-6 bg-blue-500 text-white text-[10px] sm:text-xs px-3 py-1 sm:px-4 sm:py-2  uppercase">
+        {{ images[currentIndex].category }}
+      </div>
+
+      <!-- Big Number -->
+
+      <div class="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/20 text-4xl sm:text-6xl lg:text-8xl font-bold">
+        0{{ currentIndex + 1 }}
+      </div>
+
+      <!-- Title -->
+
+      <div class="absolute bottom-14 left-8">
+        <h3 class="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
+          {{ images[currentIndex].title }}
+        </h3>
+      </div>
+
+      <!-- Left Arrow -->
+
+      <button
+        (click)="prevSlide()"
+        class="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/30 flex items-center justify-center text-white transition text-4xl"
+      >
+        ❮
+      </button>
+
+      <!-- Right Arrow -->
+
+      <button
+        (click)="nextSlide()"
+        class="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/30 flex items-center justify-center text-white transition text-4xl"
+      >
+        ❯
+      </button>
+
+      <!-- Counter -->
+
+      <div class="absolute bottom-4 right-4 sm:bottom-5 sm:right-5 text-white text-sm sm:text-base">
+        {{ currentIndex + 1 }}/{{ images.length }}
+      </div>
+    </div>
+
+    <!-- Thumbnails -->
+
+    <div class="flex gap-3 mt-5 overflow-x-auto pd-2 scrollbar-hidden">
+      <img
+        *ngFor="let img of images; let i = index"
+        [src]="img.image"
+        (click)="goToSlide(i)"
+        class="w-16 h-12 sm:w-20 sm:h-16 object-cover cursor-pointer border-2 transition-all flex-shrink-0"
+        [class.border-blue-600]="i == currentIndex"
+        [class.border-transparent]="i != currentIndex"
+      />
+    </div>
+  </div>
+</section>

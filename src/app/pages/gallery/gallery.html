@@ -1,0 +1,103 @@
+<!-- Gallery Hero Section -->
+<section class="relative bg-gradient-to-br from-[#0b2942] via-[#0a2338] to-[#06192a] pt-20 pb-32 md:pt-32 md:pb-40 overflow-hidden">
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+    <!-- Small Title -->
+    <div class="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
+      <div class="w-8 md:w-12 h-[2px] bg-[#2f8de4]"></div>
+      <span class="text-[#2f8de4] uppercase tracking-wider font-bold text-xs md:text-sm">
+        MSC
+      </span>
+    </div>
+
+    <!-- Heading -->
+    <h1 class="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-none">
+      Gallery
+    </h1>
+    <h2 class="text-[#2f8de4] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-none mt-2">
+      Multimedia
+    </h2>
+
+    <!-- Description -->
+    <p class="text-gray-300 text-base sm:text-lg md:text-2xl leading-relaxed md:leading-9 max-w-2xl mt-6 md:mt-10">
+      Discover our maritime inspection operations through real field images, vessel inspections and port operations.
+    </p>
+  </div>
+
+  <!-- Bottom Wave Shape Divider -->
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+    <svg class="relative block w-full h-12 sm:h-16 md:h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path fill="#7c8793" fill-opacity="0.7" d="M0,80 C240,110 480,30 720,60 C960,90 1200,110 1440,80 L1440,120 L0,120 Z"></path>
+      <path fill="#ffffff" d="M0,95 C250,70 500,110 720,95 C980,80 1180,60 1440,90 L1440,120 L0,120 Z"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- Content Section -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+  <!-- Categories Filter List -->
+  <div class="flex flex-wrap gap-2 md:gap-3 mb-8 md:mb-12 items-center">
+    <button *ngFor="let item of categories" 
+            (click)="selectedCategory=item" 
+            class="px-4 py-1.5 md:px-5 md:py-2 text-xs md:text-sm font-medium rounded-full border border-gray-300 transition-all duration-200" 
+            [class.bg-black]="selectedCategory==item" 
+            [class.text-white]="selectedCategory==item"
+            [class.border-black]="selectedCategory==item"
+            [class.bg-white]="selectedCategory!=item"
+            [class.text-gray-700]="selectedCategory!=item"
+            [class.hover:bg-gray-50]="selectedCategory!=item">
+      {{item}}
+    </button>
+  </div>
+
+  <!-- Image Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+    <div *ngFor="let img of filteredImages" 
+         (click)="openImage(img)" 
+         class="group cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 relative bg-gray-50">
+      <div class="aspect-w-16 aspect-h-12 w-full overflow-hidden bg-gray-200">
+        <img [src]="img.src" 
+             [alt]="img.title || 'Gallery image'"
+             class="h-48 sm:h-56 md:h-64 lg:h-72 w-full object-cover transition-transform duration-300 group-hover:scale-105">
+      </div>
+      <span class="absolute top-3 left-3 bg-blue-500 text-white text-[10px] md:text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm">
+        Featured
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- Responsive Modal Component -->
+<div *ngIf="selectedImage" 
+     class="fixed inset-0 bg-black/80 flex justify-center items-center z-50 p-4 backdrop-blur-sm transition-opacity duration-300">
+  <div class="bg-white rounded-xl overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl transform scale-100 transition-transform duration-300">
+    <!-- Image Area Container -->
+    <div class="relative flex-1 bg-gray-900 flex items-center justify-center p-2 min-h-0">
+      <img [src]="selectedImage.src" 
+           [alt]="selectedImage.title"
+           class="max-w-full max-h-[50vh] md:max-h-[65vh] object-contain">
+    </div>
+    
+    <!-- Info & Controls Area -->
+    <div class="p-4 md:p-6 bg-white overflow-y-auto">
+      <h3 class="text-xl md:text-2xl font-bold text-gray-900">{{selectedImage.title}}</h3>
+      <p class="text-sm md:text-base text-gray-600 mt-2 whitespace-pre-line leading-relaxed">
+        {{selectedImage.description}}
+      </p>
+      
+      <!-- Control Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-2 sm:justify-between items-stretch sm:items-center mt-6 pt-4 border-t border-gray-100">
+        <div class="flex gap-2 w-full sm:w-auto">
+          <button (click)="previous()" class="flex-1 sm:flex-initial bg-gray-800 hover:bg-gray-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition">
+            Previous
+          </button>
+          <button (click)="next()" class="flex-1 sm:flex-initial bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-lg transition">
+            Next
+          </button>
+        </div>
+        <button (click)="closeModel()" class="w-full sm:w-auto bg-red-600 hover:bg-red-500 text-white text-sm font-medium px-4 py-2 rounded-lg transition text-center">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
